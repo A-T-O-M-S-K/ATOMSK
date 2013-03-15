@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
     }
 
     @Override
@@ -27,7 +28,7 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
-    /* Calls the BluetoothTest activity */
+    /* Calls the GPSTest activity */
     public void startGPSTest(View view) {
     	Intent intent = new Intent(this, GPSTestActivity.class);
     	startActivity(intent);

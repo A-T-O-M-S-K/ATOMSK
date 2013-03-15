@@ -5,8 +5,8 @@
     <string name="menu_settings">Settings</string>
     <string name="button_gpstest">Test GPS</string>
     <string name="button_bluetoothtest">Test Bluetooth</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_bluetooth_test">BluetoothTestActivity</string>
     <string name="title_activity_gpstest">GPSTestActivity</string>
+    <string name="hello"/>
 
 </resources>

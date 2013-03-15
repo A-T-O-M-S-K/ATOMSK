@@ -1,5 +1,8 @@
 package com.longley.willis.atomsk;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
@@ -34,9 +37,28 @@ public class GPSTestActivity extends Activity {
 		tView = (TextView) findViewById(R.id.gpstest_text);
 		
 		/* Create String with the location data */
-		String currLocStr = "Latitude: " + currLoc.getLatitude() + "\nLongitude: "
+		String currLocStr = "";
+		try{
+		currLocStr = "Latitude: " + currLoc.getLatitude() + "\nLongitude: "
 							+ currLoc.getLongitude();
+		} catch(Exception e)
+		{
+			String something = lProvider.getName();
+			if(currLoc == null)
+			{
+				currLocStr = " currLoc: null \n Current Provider: " + lProvider.getName() + "\nLatitude: unable to fetch \nLongitude: unable to fetch \n Available Providers:";
+				List<String> availableProviders = lManager.getAllProviders();
+				for(String provider : availableProviders)
+				{
+					currLocStr += "\n\t " + provider;
+				}
+			}
+			else
+			{
+				currLocStr = " Latitude: No Data Available \nLongitude: No Data Available";
 		
+			}
+		}
 		/* Set text */
 		tView.setText(currLocStr);
 	}
